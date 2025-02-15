@@ -194,3 +194,8 @@ test('toString of KerbinTime(1, 0, 0, 0, 0)', () => {
     let kerbinTime = new KerbinTime(1, 0, 0, 0, 0);
     expect(kerbinTime.toString()).toBe("1y, 0d, 0h, 0m, 0s");
 });
+
+test('toString of kerbisynchronous', () => {
+    let kerbinTime = KerbinTime.kerbisynchronous();
+    expect(kerbinTime.toString()).toBe("0y, 0d, 5h, 59m, 9.425s");
+});

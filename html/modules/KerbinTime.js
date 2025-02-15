@@ -1,4 +1,4 @@
-import { isInt, roundToN } from "./utils";
+import { isInt, roundToN } from "./utils.js";
 
 class KerbinTime {
 

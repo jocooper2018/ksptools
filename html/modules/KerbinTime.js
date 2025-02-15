@@ -23,6 +23,9 @@ class KerbinTime {
             if (isNaN(arg)) {
                 throw new TypeError("All args must be a number");
             }
+            if (arg < 0) {
+                throw new Error("All args must be ≥ 0")
+            }
         }
 
         for (let index = 1; index <= args.length; index++) {

@@ -1,3 +1,5 @@
+import { isInt } from "./utils";
+
 class KerbinTime {
 
     static MAX_SECONDS = 60;
@@ -49,6 +51,16 @@ class KerbinTime {
                     break;
             }
         }
+    }
+
+    relayDeploymentPeriod(n) {
+        if (!isInt(n)) {
+            throw new TypeError("n must be an int")
+        }
+        if (n < 2) {
+            throw new Error("n must be ≥ 2")
+        }
+        return new KerbinTime(this * ((n - 1) / n))
     }
 
     toString() {

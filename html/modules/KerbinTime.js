@@ -10,7 +10,7 @@ class KerbinTime {
     static YEAR_IN_SECONDS = KerbinTime.DAY_IN_SECONDS * KerbinTime.MAX_DAYS;
 
     static kerbisynchronous() {
-        return new KerbinTime(5, 59, 9.425)
+        return new KerbinTime(21549.425)
     }
 
     #nbSeconds = 0;

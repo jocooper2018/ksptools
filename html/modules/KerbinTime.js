@@ -12,12 +12,34 @@ class KerbinTime {
     #nbSeconds = 0;
 
     constructor(...args) {
-        if ((args.length < 0) || (args.length > 4)) {
+        if ((args.length < 0) || (args.length > 5)) {
             throw new Error("Incorrect number of argument");
         }
         for (const arg of args) {
             if (isNaN(arg)) {
                 throw new TypeError("All args must be a number");
+            }
+        }
+
+        for (let index = 1; index <= args.length; index++) {
+            const arg = args[args.length - index];
+            switch (index) {
+                case 1:
+                    this.#nbSeconds += arg;
+                    break;
+                case 2:
+                    this.#nbSeconds += arg * KerbinTime.MINUTE_IN_SECONDS;
+                    break;
+                case 3:
+                    this.#nbSeconds += arg * KerbinTime.HOUR_IN_SECONDS;
+                    break;
+                case 4:
+                    this.#nbSeconds += arg * KerbinTime.DAY_IN_SECONDS;
+                    break;
+                case 5:
+                    this.#nbSeconds += arg * KerbinTime.YEAR_IN_SECONDS;
+                default:
+                    break;
             }
         }
     }

@@ -1,4 +1,4 @@
-import { isInt } from "./utils";
+import { isInt, roundToN } from "./utils";
 
 class KerbinTime {
 
@@ -73,7 +73,7 @@ class KerbinTime {
         nbSeconds -= h * KerbinTime.HOUR_IN_SECONDS;
         const m = Math.floor(nbSeconds / KerbinTime.MINUTE_IN_SECONDS);
         nbSeconds -= m * KerbinTime.MINUTE_IN_SECONDS;
-        const s = parseFloat(nbSeconds.toFixed(3));
+        const s = roundToN(nbSeconds, 3);
         return `${y}y, ${d}d, ${h}h, ${m}m, ${s}s`;
     }
 

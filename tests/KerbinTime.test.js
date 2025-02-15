@@ -199,3 +199,66 @@ test('toString of kerbisynchronous', () => {
     let kerbinTime = KerbinTime.kerbisynchronous();
     expect(kerbinTime.toString()).toBe("0y, 0d, 5h, 59m, 9.425s");
 });
+
+
+test("relayDeploymentPeriod value with n = 3 and KerbinTime(3) must be 2", () => {
+    let kerbinTime = new KerbinTime(3);
+    let n = 3;
+    let result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.valueOf()).toBe(2)
+});
+
+test("relayDeploymentPeriod toString with n = 3 and KerbinTime(3) must be \"0y, 0d, 0h, 0m, 2s\"", () => {
+    let kerbinTime = new KerbinTime(3);
+    let n = 3;
+    let result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.toString()).toBe("0y, 0d, 0h, 0m, 2s")
+});
+
+
+
+test("kerbisynchronous relayDeploymentPeriod value with n = 3 must be 14366.283", () => {
+    const kerbinTime = KerbinTime.kerbisynchronous();
+    const n = 3;
+    const result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.valueOf()).toBeCloseTo(14366.283, 3)
+});
+
+test("kerbisynchronous relayDeploymentPeriod toString with n = 3 must be \"0y, 0d, 3h, 59m, 26.283s\"", () => {
+    const kerbinTime = KerbinTime.kerbisynchronous();
+    const n = 3;
+    const result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.toString()).toBe("0y, 0d, 3h, 59m, 26.283s", 3)
+});
+
+
+test("relayDeploymentPeriod value with n = 4 and KerbinTime(4) must be 3", () => {
+    let kerbinTime = new KerbinTime(4);
+    let n = 4;
+    let result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.valueOf()).toBe(3)
+});
+
+test("relayDeploymentPeriod toString with n = 4 and KerbinTime(4) must be 2", () => {
+    let kerbinTime = new KerbinTime(4);
+    let n = 4;
+    let result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.toString()).toBe("0y, 0d, 0h, 0m, 3s")
+});
+
+
+
+test("kerbisynchronous value relayDeploymentPeriod with n = 4 must be 16162.069", () => {
+    const kerbinTime = KerbinTime.kerbisynchronous();
+    const n = 4;
+    const result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.valueOf()).toBeCloseTo(16162.069, 3)
+});
+
+test("kerbisynchronous toString relayDeploymentPeriod with n = 4 must be \"0y, 0d, 4h, 29m, 22.069s\"", () => {
+    const kerbinTime = KerbinTime.kerbisynchronous();
+    const n = 4;
+    const result = kerbinTime.relayDeploymentPeriod(n);
+    expect(result.toString()).toBe("0y, 0d, 4h, 29m, 22.069s", 3)
+});
+

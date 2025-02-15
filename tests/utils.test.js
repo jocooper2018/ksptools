@@ -21,3 +21,11 @@ test("\"1\" is not an int", () => {
     expect(isInt("1")).toBe(false);
 });
 
+test("null is not an int", () => {
+    expect(isInt(null)).toBe(false);
+});
+
+test("undefined is not an int", () => {
+    expect(isInt(undefined)).toBe(false);
+});
+

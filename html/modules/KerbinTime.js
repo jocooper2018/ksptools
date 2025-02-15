@@ -45,7 +45,18 @@ class KerbinTime {
     }
 
     toString() {
-        return `KerbinTime(${this.#nbSeconds})`;
+        let nbSeconds = this.#nbSeconds;
+        const y = Math.floor(nbSeconds / KerbinTime.YEAR_IN_SECONDS);
+        nbSeconds -= y * KerbinTime.YEAR_IN_SECONDS;
+        const d = Math.floor(nbSeconds / KerbinTime.DAY_IN_SECONDS);
+        nbSeconds -= d * KerbinTime.DAY_IN_SECONDS;
+        const h = Math.floor(nbSeconds / KerbinTime.HOUR_IN_SECONDS);
+        nbSeconds -= h * KerbinTime.HOUR_IN_SECONDS;
+        const m = Math.floor(nbSeconds / KerbinTime.MINUTE_IN_SECONDS);
+        nbSeconds -= m * KerbinTime.MINUTE_IN_SECONDS;
+        const s = nbSeconds;
+        nbSeconds -= s;
+        return `${y}y, ${d}d, ${h}h, ${m}m, ${s}s`;
     }
 
     valueOf() {

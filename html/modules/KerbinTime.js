@@ -58,8 +58,7 @@ class KerbinTime {
         nbSeconds -= h * KerbinTime.HOUR_IN_SECONDS;
         const m = Math.floor(nbSeconds / KerbinTime.MINUTE_IN_SECONDS);
         nbSeconds -= m * KerbinTime.MINUTE_IN_SECONDS;
-        const s = nbSeconds;
-        nbSeconds -= s;
+        const s = parseFloat(nbSeconds.toFixed(3));
         return `${y}y, ${d}d, ${h}h, ${m}m, ${s}s`;
     }
 

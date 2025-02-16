@@ -290,6 +290,22 @@ test("kerbisynchronous toString relayDeploymentPeriod with n = 4 must be \"0y, 0
     const kerbinTime = KerbinTime.kerbisynchronous();
     const n = 4;
     const result = kerbinTime.relayDeploymentPeriod(n);
-    expect(result.toString()).toBe("0y, 0d, 4h, 29m, 22.069s", 3)
+    expect(result.toString()).toBe("0y, 0d, 4h, 29m, 22.069s")
+});
+
+
+test("kerbisynchronous is kerbisynchronous", () => {
+    const kerbinTime = KerbinTime.kerbisynchronous();
+    expect(kerbinTime.isKerbisynchronous()).toBe(true);
+});
+
+test("KerbinTime() is not kerbisynchronous", () => {
+    const kerbinTime = new KerbinTime();
+    expect(kerbinTime.isKerbisynchronous()).toBe(false);
+});
+
+test("KerbinTime(1, 2, 3, 4) is not kerbisynchronous", () => {
+    const kerbinTime = new KerbinTime(1, 2, 3, 4);
+    expect(kerbinTime.isKerbisynchronous()).toBe(false);
 });
 

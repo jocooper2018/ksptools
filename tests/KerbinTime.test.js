@@ -1,4 +1,4 @@
-import KerbinTime from "../html/modules/KerbinTime";
+import KerbinTime from "../docs/modules/KerbinTime";
 
 test("Value of KerbinTime() === 0", () => {
     let kerbinTime = new KerbinTime();

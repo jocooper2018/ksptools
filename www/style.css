@@ -7,7 +7,7 @@ main > div {
     margin: 0.5rem 0;
 }
 
-main > div:first-child {
+main > div:nth-child(2) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -15,7 +15,7 @@ main > div:first-child {
     text-wrap: nowrap;
 }
 
-main > div:first-child > label > span {
+main > div:nth-child(2) > label > span {
     display: inline-block;
     width: 1rem;
 }

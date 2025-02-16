@@ -1,9 +1,10 @@
 import KerbinTime from "./modules/KerbinTime.js";
-import { isInt } from "./modules/utils.js";
+import { isInt, roundToN } from "./modules/utils.js";
 
 
 document.addEventListener("DOMContentLoaded", function() {
 
+    const orbitTypeInput = document.getElementById("orbit-type");
     const yearsInput = document.getElementById("years");
     const daysInput = document.getElementById("days");
     const hoursInput = document.getElementById("hours");
@@ -18,13 +19,19 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
         try {
-            timeText.innerText = new KerbinTime(
+            const kerbinTime = new KerbinTime(
                 Number(yearsInput.value), 
                 Number(daysInput.value), 
                 Number(hoursInput.value), 
                 Number(minutesInput.value), 
                 Number(secondsInput.value)
-            ).relayDeploymentPeriod(parseInt(nbSatInput.value)).toString();
+            );
+            timeText.innerText = kerbinTime.relayDeploymentPeriod(parseInt(nbSatInput.value)).toString();
+            if (kerbinTime.isKerbisynchronous()) {
+                orbitTypeInput.value = "kerbisynchronous";
+            } else {
+                orbitTypeInput.value = "custom";
+            }
         } catch (e) {
             timeText.innerText = "-y, -d, -h, -m, -s";
         }
@@ -69,7 +76,29 @@ document.addEventListener("DOMContentLoaded", function() {
         updateTimeText();
     }
 
+    function setKerbisynchronous() {
+        yearsInput.value = 0;
+        daysInput.value = 0;
+        hoursInput.value = 0;
+        minutesInput.value = 0;
+        secondsInput.value = KerbinTime.kerbisynchronous().valueOf();
+        secondsInput.dispatchEvent(new Event("change"));
+    }
+
+    orbitTypeInput.addEventListener("change", function() {
+        switch (orbitTypeInput.value) {
+            case "kerbisynchronous":
+                setKerbisynchronous();
+                break;
+            case "custom":
+                break;
+            default:
+                break;
+        }
+    });
+
     secondsInput.addEventListener("change", function() {
+        secondsInput.value = roundToN(Number(secondsInput.value), 3);
         handleInputChange(secondsInput, minutesInput, null, KerbinTime.MAX_SECONDS, null);
     });
 

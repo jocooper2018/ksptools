@@ -63,6 +63,13 @@ class KerbinTime {
         return new KerbinTime(this * ((n - 1) / n))
     }
 
+    isKerbisynchronous(n) {
+        if (n === undefined) {
+            n = 3;
+        }
+        return roundToN(this.valueOf(), n) === roundToN(KerbinTime.kerbisynchronous().valueOf(), n);
+    }
+
     toString() {
         let nbSeconds = this.#nbSeconds;
         const y = Math.floor(nbSeconds / KerbinTime.YEAR_IN_SECONDS);

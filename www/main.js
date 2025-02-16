@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
             timeText.innerText = kerbinTime.relayDeploymentPeriod(parseInt(nbSatInput.value)).toString();
             if (kerbinTime.isKerbisynchronous()) {
                 orbitTypeInput.value = "kerbisynchronous";
+            } else if (kerbinTime.valueOf() === 0) {
+                orbitTypeInput.value = "zero";
             } else {
                 orbitTypeInput.value = "custom";
             }
@@ -85,11 +87,22 @@ document.addEventListener("DOMContentLoaded", function() {
         secondsInput.dispatchEvent(new Event("change"));
     }
 
+    function setToZero() {
+        yearsInput.value = 0;
+        daysInput.value = 0;
+        hoursInput.value = 0;
+        minutesInput.value = 0;
+        secondsInput.value = 0;
+        updateTimeText();   
+    }
+
     orbitTypeInput.addEventListener("change", function() {
         switch (orbitTypeInput.value) {
             case "kerbisynchronous":
                 setKerbisynchronous();
                 break;
+            case "zero":
+                setToZero();
             case "custom":
                 break;
             default:

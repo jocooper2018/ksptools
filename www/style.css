@@ -4,9 +4,18 @@ input[type="number"] {
 }
 
 main > div {
+    margin: 0.5rem 0;
+}
+
+main > div:first-child {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 1rem;
-    margin: 0.5rem 0;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.5rem;
+    text-wrap: nowrap;
+}
+
+main > div:first-child > label > span {
+    display: inline-block;
+    width: 1rem;
 }

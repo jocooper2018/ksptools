@@ -3,6 +3,10 @@ input[type="number"] {
     text-align: right;
 }
 
-label {
-    margin-left: 0.5rem;
+main > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    margin: 0.5rem 0;
 }

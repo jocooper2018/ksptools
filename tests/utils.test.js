@@ -1,4 +1,4 @@
-import { isInt, roundToN } from "../docs/modules/utils";
+import { isInt, roundToN } from "../www/modules/utils";
 
 
 test("1 is an int", () => {

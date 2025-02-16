@@ -9,15 +9,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const minutesInput = document.getElementById("minutes");
     const secondsInput = document.getElementById("seconds");
     const timeText = document.getElementById("time");
+    const nbSatInput = document.getElementById("nbSat");
 
     function updateTimeText() {
+        if (Number(nbSatInput.value) < 2) {
+            timeText.innerText = "-y, -d, -h, -m, -s";
+            return;
+        }
         timeText.innerText = new KerbinTime(
             Number(yearsInput.value), 
             Number(daysInput.value), 
             Number(hoursInput.value), 
             Number(minutesInput.value), 
             Number(secondsInput.value)
-        ).relayDeploymentPeriod(3).toString();
+        ).relayDeploymentPeriod(parseInt(nbSatInput.value)).toString();
     }
 
     function canBeDowned(input) {
@@ -68,4 +73,10 @@ document.addEventListener("DOMContentLoaded", function() {
     daysInput.addEventListener("change", function() {
         handleInputChange(daysInput, yearsInput, KerbinTime.MAX_DAYS);
     });
+
+    nbSatInput.addEventListener("change", function() {
+        updateTimeText();
+    });
+
+    updateTimeText();
 });

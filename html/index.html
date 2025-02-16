@@ -10,29 +10,39 @@
 </head>
 
 <body>
-    <div>
-        <label for="years">
-            <input type="number" name="years" id="years" value="0">
-            <span>y </span>
-        </label>
-        <label for="days">
-            <input type="number" name="days" id="days" value="0">
-            <span>d </span>
-        </label>
-        <label for="hours">
-            <input type="number" name="hours" id="hours" value="0">
-            <span>h </span>
-        </label>
-        <label for="minutes">
-            <input type="number" name="minutes" id="minutes" value="0">
-            <span>m </span>
-        </label>
-        <label for="seconds">
-            <input type="number" name="seconds" id="seconds" value="0">
-            <span>s </span>
-        </label>
-    </div>
-    <span id="time">0y, 0d, 0h, 0m, 0s</span>
+    <main>
+        <div>
+            <label for="years">
+                <input type="number" name="years" id="years" value="0">
+                <span>y </span>
+            </label>
+            <label for="days">
+                <input type="number" name="days" id="days" value="0">
+                <span>d </span>
+            </label>
+            <label for="hours">
+                <input type="number" name="hours" id="hours" value="0">
+                <span>h </span>
+            </label>
+            <label for="minutes">
+                <input type="number" name="minutes" id="minutes" value="0">
+                <span>m </span>
+            </label>
+            <label for="seconds">
+                <input type="number" name="seconds" id="seconds" value="0">
+                <span>s </span>
+            </label>
+        </div>
+        <div>
+            <label for="nbSat">
+                <span>Number of satellites: </span>
+                <input type="number" name="nbSat" id="nbSat" min="2" value="3">
+            </label>
+        </div>
+        <div>
+            <span id="time">-y, -d, -h, -m, -s</span>
+        </div>
+    </main>
 </body>
 
 </html>
